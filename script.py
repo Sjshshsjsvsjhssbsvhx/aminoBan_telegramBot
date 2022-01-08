@@ -39,7 +39,7 @@ class Init:
             try:
                 with open("auth.json", "r", encoding= "utf-8") as File:
                     data: dict = json.load(File)
-                    auth: list = [data.get("email"), data.get("password"), data.get("aminoId")]
+                    auth: list = [str(data.get("email")), str(data.get("password")), str(data.get("aminoId"))]
             except OSError:
                 print("@@Error! Cannot read auth file! Exit!")
                 sys.exit()
