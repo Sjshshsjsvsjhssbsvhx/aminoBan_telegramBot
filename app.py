@@ -71,5 +71,8 @@ def echo(message) -> None:
             bot.reply_to(message, "Успешно\n@Smugiepop\n@Tonyous")
         elif result == False:
             bot.reply_to(message, "Провал\n@Smugiepop\nTonyous")
-
-bot.infinity_polling()
+while True:
+    try:
+        bot.infinity_polling()
+    except ConnectionError:
+        pass
