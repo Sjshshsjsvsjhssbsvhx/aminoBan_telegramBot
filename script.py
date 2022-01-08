@@ -36,14 +36,14 @@ class Init:
                     print("Wrong input! Try again!")
             if is_true_auth_data == "N":
                 self.init_authFile()
-            try:
-                with open("auth.json", "r", encoding= "utf-8") as File:
-                    data: dict = json.load(File)
-                    auth: list = [str(data.get("email")), str(data.get("password")), str(data.get("aminoId"))]
-            except OSError:
-                print("@@Error! Cannot read auth file! Exit!")
-                sys.exit()
-            return auth
+        try:
+            with open("auth.json", "r", encoding= "utf-8") as File:
+                data: dict = json.load(File)
+                auth: list = [str(data.get("email")), str(data.get("password")), str(data.get("aminoId"))]
+        except OSError:
+            print("@@Error! Cannot read auth file! Exit!")
+            sys.exit()
+        return auth
 
     def authorization(self, email: str, password: str, aminoId: str) -> None:
         self.client = amino.Client()
